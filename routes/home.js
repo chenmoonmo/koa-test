@@ -1,8 +1,9 @@
 const router = require('koa-router')();
 
-router.get('/', async ctx => {
+router.get('/home', async ctx => {
   console.log(ctx.headers)
-  const html = `<h1 style="color: #fe3f10">fuck world</h1>`
+  const { name } = ctx.query
+  const html = `<h1 style="color: #fe3f10">fuck ${name || 'world'}</h1>`
   ctx.body = html
 })
 
