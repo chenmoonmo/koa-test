@@ -9,7 +9,11 @@ router.get('/home', async ctx => {
 
 router.post('/home', async ctx => {
   console.log(ctx.request.body)
-
+  ctx.response.status = 200
+  ctx.response.body = {
+    name: 'simon',
+    ...ctx.request.body
+  }
 })
 
 module.exports = router
